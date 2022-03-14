@@ -4,11 +4,13 @@ import { Outlet, Route, Routes } from 'react-router-dom'
 
 import { FullPageSpinner } from '@/components'
 import { MainLayout } from '@/components/layout'
+import { lazyImport } from '@/utils/lazy-import'
 
 import { WalletProvider } from '../context'
-import { AddToken } from './add-token'
-import { EditToken } from './edit-token'
-import { Tokens } from './tokens'
+
+const { AddToken } = lazyImport(() => import('./add-token'), 'AddToken')
+const { EditToken } = lazyImport(() => import('./edit-token'), 'EditToken')
+const { Tokens } = lazyImport(() => import('./tokens'), 'Tokens')
 
 const WalletApp = () => {
   return (
