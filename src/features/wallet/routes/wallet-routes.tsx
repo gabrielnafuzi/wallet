@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 
-import { Outlet, Route, Routes } from 'react-router-dom'
+import { Navigate, Outlet, Route, Routes } from 'react-router-dom'
 
 import { FullPageSpinner } from '@/components'
 import { MainLayout } from '@/components/layout'
@@ -31,6 +31,7 @@ export const WalletRoutes = () => {
         <Route path="/" element={<Tokens />} />
         <Route path="/add-token" element={<AddToken />} />
         <Route path="/edit-token/:id" element={<EditToken />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
   )
