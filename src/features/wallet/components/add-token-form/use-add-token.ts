@@ -2,8 +2,8 @@ import { useToast } from '@chakra-ui/react'
 import { nanoid } from 'nanoid'
 import { SubmitHandler } from 'react-hook-form'
 
+import type { FormValues } from '../../common'
 import { useWallet } from '../../hooks'
-import type { FormValues } from './types'
 
 export const useAddToken = (resetFn: () => void) => {
   const toast = useToast()

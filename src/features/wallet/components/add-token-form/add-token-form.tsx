@@ -4,8 +4,7 @@ import { useForm } from 'react-hook-form'
 
 import { Input } from '@/components/form'
 
-import { addTokenSchema } from './add-token-schema'
-import type { FormValues } from './types'
+import { tokenFormSchema, type FormValues } from '../../common'
 import { useAddToken } from './use-add-token'
 
 export const AddTokenForm = () => {
@@ -15,7 +14,7 @@ export const AddTokenForm = () => {
     formState: { errors },
     reset,
   } = useForm<FormValues>({
-    resolver: yupResolver(addTokenSchema),
+    resolver: yupResolver(tokenFormSchema),
   })
 
   const addToken = useAddToken(reset)

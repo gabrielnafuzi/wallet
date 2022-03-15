@@ -3,8 +3,8 @@ import { useEffect } from 'react'
 import { Box, Flex } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
 
+import type { EditTokenPageParams } from '../common'
 import { EditTokenForm, GoBackHeader, WalletLayout } from '../components'
-import type { EditTokenPageParams } from '../components/edit-token-form/types'
 import { useRedirectIfNoToken } from '../hooks'
 
 export const EditToken = () => {

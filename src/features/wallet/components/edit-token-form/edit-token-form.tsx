@@ -7,11 +7,11 @@ import { useParams } from 'react-router-dom'
 
 import { Input } from '@/components/form'
 
+import { tokenFormSchema } from '../../common'
+import type { FormValues, EditTokenPageParams } from '../../common'
 import { useWallet } from '../../hooks'
 import type { Token } from '../../types'
 import { useUpdateToken } from './edit-add-token'
-import { editTokenSchema } from './edit-token-schema'
-import type { EditTokenPageParams, FormValues } from './types'
 
 export const EditTokenForm = () => {
   const params = useParams<EditTokenPageParams>()
@@ -27,7 +27,7 @@ export const EditTokenForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
-    resolver: yupResolver(editTokenSchema),
+    resolver: yupResolver(tokenFormSchema),
     defaultValues: {
       ...(selectedToken ?? {}),
     },
