@@ -1,39 +1,27 @@
 import { Button, Stack } from '@chakra-ui/react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { nanoid } from 'nanoid'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 import { Input } from '@/components/form'
 
-import { useWallet } from '../../hooks'
 import { addTokenSchema } from './add-token-schema'
-
-type FormData = {
-  token: string
-  balance: string
-}
+import type { FormValues } from './types'
+import { useAddToken } from './use-add-token'
 
 export const AddTokenForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+    reset,
+  } = useForm<FormValues>({
     resolver: yupResolver(addTokenSchema),
   })
 
-  const { addToken } = useWallet()
-
-  const handleAddToken: SubmitHandler<FormData> = ({ token, balance }) => {
-    addToken({
-      id: nanoid(),
-      token,
-      balance,
-    })
-  }
+  const addToken = useAddToken(reset)
 
   return (
-    <Stack as="form" spacing="6" onSubmit={handleSubmit(handleAddToken)}>
+    <Stack as="form" spacing="6" onSubmit={handleSubmit(addToken)}>
       <Input
         label="Token"
         {...register('token')}
