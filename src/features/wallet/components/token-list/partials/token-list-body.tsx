@@ -1,4 +1,4 @@
-import { Box, Flex, List, Text } from '@chakra-ui/react'
+import { Flex, Text } from '@chakra-ui/react'
 
 import { ListCustomScrollbar } from '@/components/list'
 

@@ -1,4 +1,4 @@
 export type FormValues = {
-  token: string
+  name: string
   balance: string
 }

@@ -27,7 +27,7 @@ export const WalletProvider = ({ children }: WalletContextProps) => {
 
   const checkIfTokenExists = useCallback(
     (tokenName: string) => {
-      return tokens.some(({ token }) => token === tokenName)
+      return tokens.some(({ name }) => name === tokenName)
     },
     [tokens]
   )
@@ -35,7 +35,7 @@ export const WalletProvider = ({ children }: WalletContextProps) => {
   const actions = useMemo(
     () => ({
       addToken: (token: Token) => {
-        const tokenExists = checkIfTokenExists(token.token)
+        const tokenExists = checkIfTokenExists(token.name)
 
         if (tokenExists) {
           throw new Error('Token already exists')

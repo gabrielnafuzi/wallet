@@ -1,5 +1,5 @@
 export type Token = {
   id: string
-  token: string
+  name: string
   balance: string
 }

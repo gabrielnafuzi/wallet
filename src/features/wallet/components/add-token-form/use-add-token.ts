@@ -9,18 +9,18 @@ export const useAddToken = (resetFn: () => void) => {
   const toast = useToast()
   const { addToken } = useWallet()
 
-  const handleAddToken: SubmitHandler<FormValues> = ({ token, balance }) => {
+  const handleAddToken: SubmitHandler<FormValues> = ({ name, balance }) => {
     toast.closeAll()
 
     try {
       addToken({
         id: nanoid(),
-        token,
+        name,
         balance,
       })
 
       toast({
-        title: `Token ${token} created.`,
+        title: `Token ${name} created.`,
         description: 'Go to home page to see it.',
         status: 'success',
         duration: 5000,

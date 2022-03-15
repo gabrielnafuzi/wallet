@@ -17,7 +17,7 @@ export const TokenListItem = ({ token }: TokenListItemProps) => {
 
         <GridItem>
           <Text fontWeight="bold" fontSize="3xl">
-            {token.token}
+            {token.name}
           </Text>
         </GridItem>
 

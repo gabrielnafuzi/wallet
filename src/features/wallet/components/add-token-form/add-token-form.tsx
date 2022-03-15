@@ -24,9 +24,9 @@ export const AddTokenForm = () => {
     <Stack as="form" spacing="6" onSubmit={handleSubmit(addToken)}>
       <Input
         label="Token"
-        {...register('token')}
-        isInvalid={!!errors.token}
-        error={errors.token?.message}
+        {...register('name')}
+        isInvalid={!!errors.name}
+        error={errors.name?.message}
       />
       <Input
         label="Balance"
