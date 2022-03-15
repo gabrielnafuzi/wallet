@@ -1,9 +1,9 @@
-import { createContext, useMemo, useReducer } from 'react'
+import { createContext, useCallback, useMemo, useReducer } from 'react'
 
 import { parseJSON } from '@/utils/parse-json'
 
 import { WALLET_STORAGE_KEY } from '../../constants/storage-keys'
-import {
+import type {
   WalletContextValue,
   WalletContextProps,
   WalletState,
@@ -25,9 +25,22 @@ const initialState: WalletState =
 export const WalletProvider = ({ children }: WalletContextProps) => {
   const [{ tokens }, dispatch] = useReducer(walletReducer, initialState)
 
+  const checkIfTokenExists = useCallback(
+    (tokenName: string) => {
+      return tokens.some(({ token }) => token === tokenName)
+    },
+    [tokens]
+  )
+
   const actions = useMemo(
     () => ({
       addToken: (token: Token) => {
+        const tokenExists = checkIfTokenExists(token.token)
+
+        if (tokenExists) {
+          throw new Error('Token already exists')
+        }
+
         dispatch({ type: 'ADD', payload: token })
       },
       removeToken: (id: string) => {
@@ -37,7 +50,7 @@ export const WalletProvider = ({ children }: WalletContextProps) => {
         dispatch({ type: 'UPDATE', payload: token })
       },
     }),
-    []
+    [checkIfTokenExists]
   )
 
   return (
