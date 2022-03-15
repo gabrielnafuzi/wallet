@@ -1,5 +1,6 @@
 import { Grid, GridItem, ListItem, Text } from '@chakra-ui/react'
 import { FaEdit } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 import { Token } from '../../../types'
 
@@ -8,11 +9,21 @@ type TokenListItemProps = {
 }
 
 export const TokenListItem = ({ token }: TokenListItemProps) => {
+  const navigate = useNavigate()
+
+  const handleNavigateToEditItem = () => {
+    navigate(`/edit-token/${token.id}`)
+  }
+
   return (
     <ListItem>
       <Grid templateColumns="10% 45% 45%">
         <GridItem display="flex" alignItems="center" justifyContent="center">
-          <FaEdit size={20} cursor="pointer" />
+          <FaEdit
+            size={20}
+            cursor="pointer"
+            onClick={handleNavigateToEditItem}
+          />
         </GridItem>
 
         <GridItem>

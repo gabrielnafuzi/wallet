@@ -26,6 +26,8 @@ const reducer = (state: WalletState, action: WalletAction) => {
         return token
       })
 
+      console.log(newTokens)
+
       return {
         ...state,
         tokens: newTokens,

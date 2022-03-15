@@ -26,8 +26,15 @@ export const WalletProvider = ({ children }: WalletContextProps) => {
   const [{ tokens }, dispatch] = useReducer(walletReducer, initialState)
 
   const checkIfTokenExists = useCallback(
-    (tokenName: string) => {
-      return tokens.some(({ name }) => name === tokenName)
+    (token: Token) => {
+      const maybeToken = tokens.find(({ name }) => name === token.name)
+      const isSameAsToken = maybeToken?.id === token.id
+
+      if (!!maybeToken && !isSameAsToken) {
+        throw new Error('Token already exists')
+      }
+
+      return false
     },
     [tokens]
   )
@@ -35,26 +42,28 @@ export const WalletProvider = ({ children }: WalletContextProps) => {
   const actions = useMemo(
     () => ({
       addToken: (token: Token) => {
-        const tokenExists = checkIfTokenExists(token.name)
-
-        if (tokenExists) {
-          throw new Error('Token already exists')
-        }
-
-        dispatch({ type: 'ADD', payload: token })
+        checkIfTokenExists(token) || dispatch({ type: 'ADD', payload: token })
       },
       removeToken: (id: string) => {
         dispatch({ type: 'REMOVE', payload: id })
       },
       updateToken: (token: Token) => {
-        dispatch({ type: 'UPDATE', payload: token })
+        checkIfTokenExists(token) ||
+          dispatch({ type: 'UPDATE', payload: token })
       },
     }),
     [checkIfTokenExists]
   )
 
+  const getToken = useCallback(
+    (tokenId?: string) => {
+      return tokens.find(({ id }) => id === tokenId) ?? null
+    },
+    [tokens]
+  )
+
   return (
-    <WalletContext.Provider value={{ tokens, ...actions }}>
+    <WalletContext.Provider value={{ tokens, getToken, ...actions }}>
       {children}
     </WalletContext.Provider>
   )

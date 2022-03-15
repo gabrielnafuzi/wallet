@@ -5,6 +5,7 @@ export type WalletContextValue = {
   addToken: (token: Token) => void
   removeToken: (id: string) => void
   updateToken: (token: Token) => void
+  getToken: (tokenId?: string) => Token | null
 }
 
 export type WalletContextProps = {
