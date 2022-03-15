@@ -14,6 +14,7 @@ export const theme = extendTheme({
       },
       red: '#930000',
       yellow: '#CAD738',
+      purple: '#7476a2',
     },
   },
   components: {

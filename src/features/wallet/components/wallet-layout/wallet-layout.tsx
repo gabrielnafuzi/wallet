@@ -9,12 +9,12 @@ type WalletLayoutProps = {
 
 export const WalletLayout = ({ children, action }: WalletLayoutProps) => {
   return (
-    <Box w="full" mt="12" maxW="xl">
+    <Box w="full" mt="12" maxW="xl" as="main">
       <Flex justifyContent="space-between" w="full">
         <Flex w="full" align="center" gap="3">
           <Image w="14" src={shootingStar} />
 
-          <Text fontSize="3xl" fontWeight="bold">
+          <Text fontSize="3xl" fontWeight="bold" as="h1">
             Wish Wallet
           </Text>
         </Flex>
@@ -22,7 +22,9 @@ export const WalletLayout = ({ children, action }: WalletLayoutProps) => {
         {!!action && <Flex align="center">{action}</Flex>}
       </Flex>
 
-      <Box mt="14">{children}</Box>
+      <Box mt="14" as="section">
+        {children}
+      </Box>
     </Box>
   )
 }

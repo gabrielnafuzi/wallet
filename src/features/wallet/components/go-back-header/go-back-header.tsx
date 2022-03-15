@@ -26,7 +26,7 @@ export const GoBackHeader = ({ title }: GoBackHeaderProps) => {
         _hover={{ bg: 'brand.gray.darken' }}
         _active={{ bg: 'brand.gray.darken' }}
       >
-        Voltar
+        Go back
       </Button>
     </Flex>
   )

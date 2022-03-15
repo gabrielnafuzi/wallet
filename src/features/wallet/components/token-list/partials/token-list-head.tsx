@@ -1,8 +1,8 @@
-import { GridItem, Text } from '@chakra-ui/react'
+import { Grid, GridItem, Text } from '@chakra-ui/react'
 
 export const TokenListHead = () => {
   return (
-    <>
+    <Grid templateColumns="10% 45% 45%" px="1">
       <GridItem />
 
       <GridItem>
@@ -14,6 +14,6 @@ export const TokenListHead = () => {
           Balance
         </Text>
       </GridItem>
-    </>
+    </Grid>
   )
 }

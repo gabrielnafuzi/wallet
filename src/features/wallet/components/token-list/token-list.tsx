@@ -7,11 +7,10 @@ export const TokenList = () => {
   const { tokens } = useWallet()
 
   return (
-    <Box w="full">
-      <Grid templateColumns="10% 45% 45%">
-        <TokenListHead />
-        <TokenListBody tokens={tokens} />
-      </Grid>
+    <Box w="full" pb="4">
+      <TokenListHead />
+
+      <TokenListBody tokens={tokens} />
     </Box>
   )
 }
