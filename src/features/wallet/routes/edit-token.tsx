@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { Box, Flex } from '@chakra-ui/react'
 import { useMatch } from '@tanstack/react-location'
 
+import { AnimatedEntry } from '@/components/animated'
 import { LocationGenerics } from '@/routes/types'
 
 import { EditTokenForm, GoBackHeader, WalletLayout } from '../components'
@@ -23,7 +24,9 @@ export const EditToken = () => {
         <Box w="full" maxW="md">
           <GoBackHeader title="Edit token" />
 
-          <EditTokenForm />
+          <AnimatedEntry>
+            <EditTokenForm />
+          </AnimatedEntry>
         </Box>
       </Flex>
     </WalletLayout>

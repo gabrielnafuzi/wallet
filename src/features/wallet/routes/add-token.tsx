@@ -1,5 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react'
 
+import { AnimatedEntry } from '@/components/animated'
+
 import { AddTokenForm, GoBackHeader, WalletLayout } from '../components'
 
 export const AddToken = () => {
@@ -9,7 +11,9 @@ export const AddToken = () => {
         <Box w="full" maxW="md">
           <GoBackHeader title="Add token" />
 
-          <AddTokenForm />
+          <AnimatedEntry>
+            <AddTokenForm />
+          </AnimatedEntry>
         </Box>
       </Flex>
     </WalletLayout>
