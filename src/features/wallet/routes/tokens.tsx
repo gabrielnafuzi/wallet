@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from '@tanstack/react-location'
 
 import { TokenList, WalletLayout } from '../components'
 
@@ -7,7 +7,9 @@ export const Tokens = () => {
   const navigate = useNavigate()
 
   const handleNavigateToAddToken = () => {
-    navigate('/add-token')
+    navigate({
+      to: '/add-token',
+    })
   }
 
   return (

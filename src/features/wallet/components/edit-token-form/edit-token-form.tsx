@@ -2,12 +2,13 @@ import { useMemo } from 'react'
 
 import { Button, Flex, Stack } from '@chakra-ui/react'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useMatch } from '@tanstack/react-location'
 import { useForm } from 'react-hook-form'
-import { useParams } from 'react-router-dom'
 
 import { Input } from '@/components/form'
+import { LocationGenerics } from '@/routes/types'
 
-import type { EditTokenPageParams, FormValues } from '~wallet/common'
+import type { FormValues } from '~wallet/common'
 import { tokenFormSchema } from '~wallet/common'
 import { useWallet } from '~wallet/hooks'
 import type { Token } from '~wallet/types'
@@ -16,12 +17,12 @@ import { useRemoveToken, useUpdateToken } from './hooks'
 import { ConfirmRemoveTokenPopover } from './partials'
 
 export const EditTokenForm = () => {
-  const params = useParams<EditTokenPageParams>()
+  const { params } = useMatch<LocationGenerics>()
   const { getToken } = useWallet()
 
   const selectedToken = useMemo(
-    () => getToken(params.id) as Token,
-    [getToken, params.id]
+    () => getToken(params.tokenId) as Token,
+    [getToken, params.tokenId]
   )
 
   const {

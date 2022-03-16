@@ -1,7 +1,7 @@
 import { useToast } from '@chakra-ui/react'
+import { useNavigate } from '@tanstack/react-location'
 import { nanoid } from 'nanoid'
 import type { SubmitHandler } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
 
 import type { FormValues } from '~wallet/common'
 import { useWallet } from '~wallet/hooks'
@@ -30,7 +30,7 @@ export const useAddToken = () => {
         position: 'top',
       })
 
-      navigate('/')
+      navigate({ to: '/' })
     } catch (error) {
       const title = (error as Error).message ?? 'Something went wrong'
 

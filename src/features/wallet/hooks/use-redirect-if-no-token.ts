@@ -1,7 +1,7 @@
-import { useCallback } from 'react'
+import { useRef } from 'react'
 
 import { useToast } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from '@tanstack/react-location'
 
 import { useWallet } from '../hooks'
 
@@ -10,7 +10,7 @@ export const useRedirectIfNoToken = (id?: string) => {
   const toast = useToast()
   const navigate = useNavigate()
 
-  return useCallback(() => {
+  return useRef(() => {
     const token = getToken(id)
 
     if (!token) {
@@ -23,7 +23,7 @@ export const useRedirectIfNoToken = (id?: string) => {
         position: 'top',
       })
 
-      navigate('/')
+      navigate({ to: '/' })
     }
-  }, [getToken, id, navigate, toast])
+  }).current
 }
