@@ -12,12 +12,11 @@ export const AddTokenForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<FormValues>({
     resolver: yupResolver(tokenFormSchema),
   })
 
-  const addToken = useAddToken(reset)
+  const addToken = useAddToken()
 
   return (
     <Stack as="form" spacing="6" onSubmit={handleSubmit(addToken)}>

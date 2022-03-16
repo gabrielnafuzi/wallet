@@ -1,13 +1,15 @@
 import { useToast } from '@chakra-ui/react'
 import { nanoid } from 'nanoid'
 import { SubmitHandler } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 import type { FormValues } from '../../common'
 import { useWallet } from '../../hooks'
 
-export const useAddToken = (resetFn: () => void) => {
+export const useAddToken = () => {
   const toast = useToast()
   const { addToken } = useWallet()
+  const navigate = useNavigate()
 
   const handleAddToken: SubmitHandler<FormValues> = ({ name, balance }) => {
     toast.closeAll()
@@ -28,7 +30,7 @@ export const useAddToken = (resetFn: () => void) => {
         position: 'top',
       })
 
-      resetFn()
+      navigate('/')
     } catch (error) {
       const title = (error as Error).message ?? 'Something went wrong'
 
