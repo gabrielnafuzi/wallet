@@ -1,17 +1,19 @@
 import { useMemo } from 'react'
 
-import { Button, Stack } from '@chakra-ui/react'
+import { Button, Flex, Stack } from '@chakra-ui/react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { useParams } from 'react-router-dom'
 
 import { Input } from '@/components/form'
 
+import type { EditTokenPageParams, FormValues } from '../../common'
 import { tokenFormSchema } from '../../common'
-import type { FormValues, EditTokenPageParams } from '../../common'
 import { useWallet } from '../../hooks'
 import type { Token } from '../../types'
-import { useUpdateToken } from './edit-add-token'
+import { ConfirmRemoveTokenPopover } from './partials'
+import { useRemoveToken } from './use-remove-token'
+import { useUpdateToken } from './use-update-token'
 
 export const EditTokenForm = () => {
   const params = useParams<EditTokenPageParams>()
@@ -34,25 +36,32 @@ export const EditTokenForm = () => {
   })
 
   const updateToken = useUpdateToken(selectedToken)
+  const removeToken = useRemoveToken(selectedToken)
 
   return (
-    <Stack as="form" spacing="6" onSubmit={handleSubmit(updateToken)}>
-      <Input
-        label="Token"
-        {...register('name')}
-        isInvalid={!!errors.name}
-        error={errors.name?.message}
-      />
-      <Input
-        label="Balance"
-        {...register('balance')}
-        isInvalid={!!errors.balance}
-        error={errors.balance?.message}
-      />
+    <>
+      <Stack as="form" spacing="6" onSubmit={handleSubmit(updateToken)}>
+        <Input
+          label="Token"
+          {...register('name')}
+          isInvalid={!!errors.name}
+          error={errors.name?.message}
+        />
+        <Input
+          label="Balance"
+          {...register('balance')}
+          isInvalid={!!errors.balance}
+          error={errors.balance?.message}
+        />
 
-      <Button type="submit" variant="primary" alignSelf="end" w="32">
-        Save
-      </Button>
-    </Stack>
+        <Flex justify="space-between">
+          <ConfirmRemoveTokenPopover onConfirm={removeToken} />
+
+          <Button type="submit" variant="primary" w="32">
+            Save
+          </Button>
+        </Flex>
+      </Stack>
+    </>
   )
 }
