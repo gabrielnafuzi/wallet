@@ -24,7 +24,7 @@ export const useUpdateToken = (selectedToken: Token) => {
       toast({
         title: `Token ${name} updated.`,
         status: 'success',
-        duration: 5000,
+        duration: 3000,
         isClosable: true,
         position: 'top',
       })
@@ -37,7 +37,7 @@ export const useUpdateToken = (selectedToken: Token) => {
         title,
         description: 'Please try again.',
         status: 'error',
-        duration: 5000,
+        duration: 3000,
         isClosable: true,
         position: 'top',
       })

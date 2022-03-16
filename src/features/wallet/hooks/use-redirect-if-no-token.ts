@@ -18,7 +18,7 @@ export const useRedirectIfNoToken = (id?: string) => {
         title: 'Token not found',
         description: 'The token you are trying to edit does not exist',
         status: 'error',
-        duration: 5000,
+        duration: 3000,
         isClosable: true,
         position: 'top',
       })

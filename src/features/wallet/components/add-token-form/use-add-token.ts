@@ -25,7 +25,7 @@ export const useAddToken = () => {
         title: `Token ${name} created.`,
         description: 'Go to home page to see it.',
         status: 'success',
-        duration: 5000,
+        duration: 3000,
         isClosable: true,
         position: 'top',
       })
@@ -38,7 +38,7 @@ export const useAddToken = () => {
         title,
         description: 'Please try again.',
         status: 'error',
-        duration: 5000,
+        duration: 3000,
         isClosable: true,
         position: 'top',
       })

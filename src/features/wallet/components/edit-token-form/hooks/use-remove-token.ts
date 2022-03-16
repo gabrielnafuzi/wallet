@@ -18,7 +18,7 @@ export const useRemoveToken = (token: Token) => {
       toast({
         title: `Token ${token.name} removed.`,
         status: 'success',
-        duration: 5000,
+        duration: 3000,
         isClosable: true,
         position: 'top',
       })
@@ -31,7 +31,7 @@ export const useRemoveToken = (token: Token) => {
         title,
         description: 'Please try again.',
         status: 'error',
-        duration: 5000,
+        duration: 3000,
         isClosable: true,
         position: 'top',
       })
