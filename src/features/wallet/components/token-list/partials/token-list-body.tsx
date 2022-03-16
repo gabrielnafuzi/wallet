@@ -1,7 +1,9 @@
 import { Flex, List, Text } from '@chakra-ui/react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import { Token } from '~wallet/types'
 
+import { listVariants } from './motion-variants'
 import { TokenListItem } from './token-list-item'
 
 type TokenListBodyProps = {
@@ -18,10 +20,20 @@ export const TokenListBody = ({ tokens }: TokenListBodyProps) => {
   }
 
   return (
-    <List spacing="4" mt="2" px="1">
-      {tokens?.map((token) => (
-        <TokenListItem key={token.id} token={token} />
-      ))}
-    </List>
+    <AnimatePresence>
+      <List
+        spacing="4"
+        mt="2"
+        px="1"
+        as={motion.ul}
+        variants={listVariants}
+        initial="hidden"
+        animate="show"
+      >
+        {tokens?.map((token) => (
+          <TokenListItem key={token.id} token={token} />
+        ))}
+      </List>
+    </AnimatePresence>
   )
 }

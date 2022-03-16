@@ -1,6 +1,6 @@
-import { Box, Flex, Image, Text } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 
-import shootingStar from '@/assets/shooting-star.svg'
+import { ShootingStar } from '@/components/shooting-star/shooting-star'
 
 type WalletLayoutProps = {
   children?: React.ReactNode
@@ -20,7 +20,9 @@ export const WalletLayout = ({ children, action }: WalletLayoutProps) => {
         zIndex="4"
       >
         <Flex w="full" align="center" gap="3">
-          <Image w="14" src={shootingStar} />
+          <Box w="16">
+            <ShootingStar />
+          </Box>
 
           <Text fontSize="3xl" fontWeight="bold" as="h1">
             Wish Wallet

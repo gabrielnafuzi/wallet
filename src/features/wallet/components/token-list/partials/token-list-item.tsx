@@ -1,8 +1,13 @@
 import { Grid, GridItem, ListItem, Text } from '@chakra-ui/react'
 import { useNavigate } from '@tanstack/react-location'
+import { motion } from 'framer-motion'
 import { FaEdit } from 'react-icons/fa'
 
+import { formatToNumber } from '@/utils/format-to-number'
+
 import { Token } from '~wallet/types'
+
+import { itemVariants } from './motion-variants'
 
 type TokenListItemProps = {
   token: Token
@@ -18,7 +23,7 @@ export const TokenListItem = ({ token }: TokenListItemProps) => {
   }
 
   return (
-    <ListItem>
+    <ListItem as={motion.li} variants={itemVariants}>
       <Grid templateColumns="10% 45% 45%">
         <GridItem display="flex" alignItems="center" justifyContent="center">
           <FaEdit
@@ -36,7 +41,7 @@ export const TokenListItem = ({ token }: TokenListItemProps) => {
 
         <GridItem>
           <Text textAlign="end" fontWeight="bold" fontSize="3xl">
-            {token.balance}
+            {formatToNumber(token.balance)}
           </Text>
         </GridItem>
       </Grid>
