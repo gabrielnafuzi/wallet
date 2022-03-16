@@ -14,6 +14,7 @@ export const Tokens = () => {
 
   return (
     <WalletLayout
+      headerSticky
       action={
         <Button onClick={handleNavigateToAddToken} variant="primary">
           Add token

@@ -1,1 +1,1 @@
-export const WALLET_STORAGE_KEY = '@klv/wallet'
+export const WALLET_STORAGE_KEY = '@gnwallet/wallet'
