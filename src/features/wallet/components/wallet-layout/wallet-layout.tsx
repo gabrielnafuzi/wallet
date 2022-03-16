@@ -10,7 +10,15 @@ type WalletLayoutProps = {
 export const WalletLayout = ({ children, action }: WalletLayoutProps) => {
   return (
     <Box w="full" mt="12" maxW="xl" as="main">
-      <Flex justifyContent="space-between" w="full">
+      <Flex
+        justifyContent="space-between"
+        w="full"
+        position="sticky"
+        top="0"
+        bg="brand.bg"
+        py="2"
+        zIndex="4"
+      >
         <Flex w="full" align="center" gap="3">
           <Image w="14" src={shootingStar} />
 

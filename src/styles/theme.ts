@@ -41,6 +41,20 @@ export const theme = extendTheme({
       body: {
         bg: 'brand.bg',
         color: 'white',
+        '&::-webkit-scrollbar': {
+          width: '5px',
+          height: '5px',
+        },
+        '&::-webkit-scrollbar-corner': {
+          background: 'transparent',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          borderRadius: '4px',
+          backgroundColor: 'brand.purple',
+        },
+        '&::-webkit-scrollbar-track': {
+          background: 'transparent',
+        },
       },
     },
   },

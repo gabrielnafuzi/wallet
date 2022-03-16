@@ -8,13 +8,7 @@ type MainLayoutProps = {
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <Container
-      maxW="container.md"
-      centerContent
-      py="12"
-      maxH="100vh"
-      overflow="hidden"
-    >
+    <Container maxW="container.md" centerContent py="12">
       <header>
         <Logo />
       </header>

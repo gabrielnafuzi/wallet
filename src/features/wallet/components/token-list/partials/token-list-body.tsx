@@ -1,6 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react'
-
-import { ListCustomScrollbar } from '@/components/list'
+import { Flex, List, Text } from '@chakra-ui/react'
 
 import { Token } from '~wallet/types'
 
@@ -20,10 +18,10 @@ export const TokenListBody = ({ tokens }: TokenListBodyProps) => {
   }
 
   return (
-    <ListCustomScrollbar spacing="4" maxH="md" overflowY="auto" mt="2" px="1">
+    <List spacing="4" mt="2" px="1">
       {tokens?.map((token) => (
         <TokenListItem key={token.id} token={token} />
       ))}
-    </ListCustomScrollbar>
+    </List>
   )
 }
