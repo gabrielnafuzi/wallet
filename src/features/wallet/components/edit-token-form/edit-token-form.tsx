@@ -11,9 +11,8 @@ import type { EditTokenPageParams, FormValues } from '../../common'
 import { tokenFormSchema } from '../../common'
 import { useWallet } from '../../hooks'
 import type { Token } from '../../types'
+import { useRemoveToken, useUpdateToken } from './hooks'
 import { ConfirmRemoveTokenPopover } from './partials'
-import { useRemoveToken } from './use-remove-token'
-import { useUpdateToken } from './use-update-token'
 
 export const EditTokenForm = () => {
   const params = useParams<EditTokenPageParams>()
