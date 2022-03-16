@@ -2,7 +2,8 @@ import { Flex, Text } from '@chakra-ui/react'
 
 import { ListCustomScrollbar } from '@/components/list'
 
-import { Token } from '../../../types'
+import { Token } from '~wallet/types'
+
 import { TokenListItem } from './token-list-item'
 
 type TokenListBodyProps = {

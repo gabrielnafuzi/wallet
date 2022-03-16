@@ -2,7 +2,8 @@ import { createContext, useCallback, useReducer } from 'react'
 
 import { parseJSON } from '@/utils/parse-json'
 
-import { WALLET_STORAGE_KEY } from '../../constants/storage-keys'
+import { WALLET_STORAGE_KEY } from '~wallet/constants/storage-keys'
+
 import { useActions } from './hooks'
 import type {
   WalletContextProps,

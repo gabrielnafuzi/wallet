@@ -7,10 +7,11 @@ import { useParams } from 'react-router-dom'
 
 import { Input } from '@/components/form'
 
-import type { EditTokenPageParams, FormValues } from '../../common'
-import { tokenFormSchema } from '../../common'
-import { useWallet } from '../../hooks'
-import type { Token } from '../../types'
+import type { EditTokenPageParams, FormValues } from '~wallet/common'
+import { tokenFormSchema } from '~wallet/common'
+import { useWallet } from '~wallet/hooks'
+import type { Token } from '~wallet/types'
+
 import { useRemoveToken, useUpdateToken } from './hooks'
 import { ConfirmRemoveTokenPopover } from './partials'
 

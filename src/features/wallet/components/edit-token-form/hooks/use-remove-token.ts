@@ -3,8 +3,8 @@ import { useCallback } from 'react'
 import { useToast } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 
-import { useWallet } from '../../../hooks'
-import { Token } from '../../../types'
+import { useWallet } from '~wallet/hooks'
+import type { Token } from '~wallet/types'
 
 export const useRemoveToken = (token: Token) => {
   const { removeToken } = useWallet()

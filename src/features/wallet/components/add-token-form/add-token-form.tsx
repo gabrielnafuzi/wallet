@@ -4,7 +4,8 @@ import { useForm } from 'react-hook-form'
 
 import { Input } from '@/components/form'
 
-import { tokenFormSchema, type FormValues } from '../../common'
+import { tokenFormSchema, type FormValues } from '~wallet/common'
+
 import { useAddToken } from './use-add-token'
 
 export const AddTokenForm = () => {

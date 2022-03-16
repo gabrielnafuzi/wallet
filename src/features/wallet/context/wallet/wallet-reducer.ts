@@ -1,4 +1,5 @@
-import { WALLET_STORAGE_KEY } from '../../constants/storage-keys'
+import { WALLET_STORAGE_KEY } from '~wallet/constants/storage-keys'
+
 import { WalletAction, WalletActionKind, WalletState } from './types'
 
 const reducer = (state: WalletState, action: WalletAction) => {

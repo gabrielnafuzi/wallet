@@ -2,7 +2,7 @@ import { Grid, GridItem, ListItem, Text } from '@chakra-ui/react'
 import { FaEdit } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
-import { Token } from '../../../types'
+import { Token } from '~wallet/types'
 
 type TokenListItemProps = {
   token: Token

@@ -1,6 +1,7 @@
-import { Box, Grid } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
-import { useWallet } from '../../hooks'
+import { useWallet } from '~wallet/hooks'
+
 import { TokenListBody, TokenListHead } from './partials'
 
 export const TokenList = () => {

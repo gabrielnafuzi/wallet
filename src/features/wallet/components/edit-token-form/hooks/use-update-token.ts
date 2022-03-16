@@ -1,10 +1,10 @@
 import { useToast } from '@chakra-ui/react'
-import { SubmitHandler } from 'react-hook-form'
+import type { SubmitHandler } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
-import type { FormValues } from '../../../common'
-import { useWallet } from '../../../hooks'
-import { Token } from '../../../types'
+import type { FormValues } from '~wallet/common'
+import { useWallet } from '~wallet/hooks'
+import { Token } from '~wallet/types'
 
 export const useUpdateToken = (selectedToken: Token) => {
   const toast = useToast()
