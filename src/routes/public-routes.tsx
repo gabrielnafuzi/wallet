@@ -1,15 +1,7 @@
-import { RouteObject } from 'react-router-dom'
+import { Route } from '@tanstack/react-location'
 
-import { lazyImport } from '@/utils/lazy-import'
+import { walletRoutes } from '@/features/wallet'
 
-const { WalletRoutes } = lazyImport(
-  () => import('@/features/wallet'),
-  'WalletRoutes'
-)
+import { LocationGenerics } from './types'
 
-export const publicRoutes: RouteObject[] = [
-  {
-    path: '/*',
-    element: <WalletRoutes />,
-  },
-]
+export const publicRoutes: Route<LocationGenerics>[] = [...walletRoutes]

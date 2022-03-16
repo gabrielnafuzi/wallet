@@ -1,15 +1,15 @@
 import { Button, Flex, Text } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation } from '@tanstack/react-location'
 
 type GoBackHeaderProps = {
   title: string
 }
 
 export const GoBackHeader = ({ title }: GoBackHeaderProps) => {
-  const navigation = useNavigate()
+  const location = useLocation()
 
   const handleGoBack = () => {
-    navigation(-1)
+    location.history.back()
   }
 
   return (

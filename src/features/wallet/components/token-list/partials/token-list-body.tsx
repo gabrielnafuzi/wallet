@@ -11,7 +11,7 @@ type TokenListBodyProps = {
 }
 
 export const TokenListBody = ({ tokens }: TokenListBodyProps) => {
-  if (!tokens.length) {
+  if (!tokens?.length) {
     return (
       <Flex align="center" justify="center" mt="28">
         <Text fontSize="xl">No tokens registered yet, add one!</Text>

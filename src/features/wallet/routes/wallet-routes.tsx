@@ -1,9 +1,10 @@
 import { Suspense } from 'react'
 
-import { Navigate, Outlet, Route, Routes } from 'react-router-dom'
+import { Navigate, Outlet, Route } from '@tanstack/react-location'
 
 import { FullPageSpinner } from '@/components'
 import { MainLayout } from '@/components/layout'
+import { LocationGenerics } from '@/routes/types'
 import { lazyImport } from '@/utils/lazy-import'
 
 import { WalletProvider } from '../context'
@@ -24,15 +25,26 @@ const WalletApp = () => {
   )
 }
 
-export const WalletRoutes = () => {
-  return (
-    <Routes>
-      <Route element={<WalletApp />}>
-        <Route path="/" element={<Tokens />} />
-        <Route path="/add-token" element={<AddToken />} />
-        <Route path="/edit-token/:id" element={<EditToken />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Route>
-    </Routes>
-  )
-}
+export const walletRoutes: Route<LocationGenerics>[] = [
+  {
+    path: '',
+    element: <WalletApp />,
+    children: [
+      {
+        path: '/',
+        element: <Tokens />,
+      },
+      {
+        path: '/add-token',
+        element: <AddToken />,
+      },
+      {
+        path: '/edit-token/:tokenId',
+        element: <EditToken />,
+      },
+      {
+        element: <Navigate to="/" />,
+      },
+    ],
+  },
+]

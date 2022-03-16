@@ -2,7 +2,6 @@ import { Suspense } from 'react'
 
 import { ChakraProvider } from '@chakra-ui/react'
 import { ErrorBoundary } from 'react-error-boundary'
-import { BrowserRouter } from 'react-router-dom'
 
 import { ErrorBoundaryFallback, FullPageSpinner } from '@/components'
 import { theme } from '@/styles/theme'
@@ -16,7 +15,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     <ChakraProvider theme={theme}>
       <Suspense fallback={<FullPageSpinner />}>
         <ErrorBoundary FallbackComponent={ErrorBoundaryFallback}>
-          <BrowserRouter>{children}</BrowserRouter>
+          {children}
         </ErrorBoundary>
       </Suspense>
     </ChakraProvider>

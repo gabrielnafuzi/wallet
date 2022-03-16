@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 
 import { useToast } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from '@tanstack/react-location'
 
 import { useWallet } from '~wallet/hooks'
 import type { Token } from '~wallet/types'
@@ -23,7 +23,7 @@ export const useRemoveToken = (token: Token) => {
         position: 'top',
       })
 
-      navigate('/')
+      navigate({ to: '/' })
     } catch (error) {
       const title = (error as Error).message ?? 'Something went wrong'
 
@@ -36,7 +36,7 @@ export const useRemoveToken = (token: Token) => {
         position: 'top',
       })
     }
-  }, [navigate, removeToken, toast, token.id, token.name])
+  }, [navigate, removeToken, toast, token?.id, token?.name])
 
   return handleRemoveToken
 }

@@ -1,6 +1,6 @@
 import { Grid, GridItem, ListItem, Text } from '@chakra-ui/react'
+import { useNavigate } from '@tanstack/react-location'
 import { FaEdit } from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom'
 
 import { Token } from '~wallet/types'
 
@@ -12,7 +12,9 @@ export const TokenListItem = ({ token }: TokenListItemProps) => {
   const navigate = useNavigate()
 
   const handleNavigateToEditItem = () => {
-    navigate(`/edit-token/${token.id}`)
+    navigate({
+      to: `/edit-token/${token.id}`,
+    })
   }
 
   return (
