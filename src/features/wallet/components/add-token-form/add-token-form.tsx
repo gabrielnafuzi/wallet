@@ -27,6 +27,7 @@ export const AddTokenForm = () => {
         isInvalid={!!errors.name}
         error={errors.name?.message}
       />
+
       <Input
         label="Balance"
         {...register('balance')}

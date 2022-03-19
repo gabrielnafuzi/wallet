@@ -40,29 +40,28 @@ export const EditTokenForm = () => {
   const removeToken = useRemoveToken(selectedToken)
 
   return (
-    <>
-      <Stack as="form" spacing="6" onSubmit={handleSubmit(updateToken)}>
-        <Input
-          label="Token"
-          {...register('name')}
-          isInvalid={!!errors.name}
-          error={errors.name?.message}
-        />
-        <Input
-          label="Balance"
-          {...register('balance')}
-          isInvalid={!!errors.balance}
-          error={errors.balance?.message}
-        />
+    <Stack as="form" spacing="6" onSubmit={handleSubmit(updateToken)}>
+      <Input
+        label="Token"
+        {...register('name')}
+        isInvalid={!!errors.name}
+        error={errors.name?.message}
+      />
 
-        <Flex justify="space-between">
-          <ConfirmRemoveTokenPopover onConfirm={removeToken} />
+      <Input
+        label="Balance"
+        {...register('balance')}
+        isInvalid={!!errors.balance}
+        error={errors.balance?.message}
+      />
 
-          <Button type="submit" variant="primary" w="32">
-            Save
-          </Button>
-        </Flex>
-      </Stack>
-    </>
+      <Flex justify="space-between">
+        <ConfirmRemoveTokenPopover onConfirm={removeToken} />
+
+        <Button type="submit" variant="primary" w="32">
+          Save
+        </Button>
+      </Flex>
+    </Stack>
   )
 }

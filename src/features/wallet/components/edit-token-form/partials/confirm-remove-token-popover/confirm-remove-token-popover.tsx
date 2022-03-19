@@ -45,6 +45,7 @@ export const ConfirmRemoveTokenPopover = ({
         </PopoverHeader>
 
         <PopoverArrow bg="gray.700" />
+
         <PopoverCloseButton />
 
         <PopoverBody>Are you sure you want to remove this token?</PopoverBody>

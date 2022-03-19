@@ -45,6 +45,21 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/no-unused-prop-types': 'error',
     'react/self-closing-comp': 'warn',
+    'react/jsx-curly-brace-presence': [
+      'error',
+      {
+        props: 'never',
+        children: 'never',
+        propElementValues: 'always',
+      },
+    ],
+    'react/hook-use-state': 'warn',
+    'react/jsx-boolean-value': 'warn',
+    'react/jsx-fragments': 'warn',
+    'react/jsx-newline': 'warn',
+    'react/jsx-no-constructed-context-values': 'error',
+    'react/jsx-no-target-blank': 'warn',
+    'react/jsx-no-useless-fragment': 'warn',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-unused-vars': [
