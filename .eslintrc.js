@@ -38,18 +38,41 @@ module.exports = {
         patterns: ['@/features/*/*'],
       },
     ],
+    'no-console': 'warn',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/no-unused-prop-types': 'error',
+    'react/self-closing-comp': 'warn',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        ignoreRestSiblings: true,
+      },
+    ],
+    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/ban-ts-comment': [
+      'error',
+      { 'ts-ignore': 'allow-with-description' },
+    ],
+    '@typescript-eslint/consistent-type-assertions': [
+      'error',
+      {
+        assertionStyle: 'as',
+        objectLiteralTypeAssertions: 'allow-as-parameter',
+      },
+    ],
     'import-helpers/order-imports': [
       'warn',
       {
         newlinesBetween: 'always',
         groups: [
-          ['/^react$/'],
+          ['/^react(-native)?$/'],
           ['module'],
           ['/^@//'],
           ['/^~/'],
