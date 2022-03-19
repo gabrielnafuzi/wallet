@@ -1,11 +1,11 @@
 import { Box } from '@chakra-ui/react'
 
-import { useStore } from '@/store'
+import { useWalletStore } from '@/store'
 
 import { TokenListBody, TokenListHead } from './partials'
 
 export const TokenList = () => {
-  const tokens = useStore((state) => state.tokens)
+  const tokens = useWalletStore((state) => state.tokens)
 
   return (
     <Box w="full" pb="4">

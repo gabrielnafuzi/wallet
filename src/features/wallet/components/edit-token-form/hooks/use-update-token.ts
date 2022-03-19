@@ -3,14 +3,14 @@ import { useCallback } from 'react'
 import { useNavigate } from '@tanstack/react-location'
 import type { SubmitHandler } from 'react-hook-form'
 
-import { useStore } from '@/store'
+import { useWalletStore } from '@/store'
+import type { Token } from '@/store'
 import { showToast } from '@/utils/toast'
 
 import type { FormValues } from '~wallet/common'
-import { Token } from '~wallet/types'
 
 export const useUpdateToken = (selectedToken: Token) => {
-  const updateToken = useStore((state) => state.updateToken)
+  const updateToken = useWalletStore((state) => state.updateToken)
   const navigate = useNavigate()
 
   const handleUpdateToken: SubmitHandler<FormValues> = useCallback(

@@ -2,13 +2,13 @@ import { useNavigate } from '@tanstack/react-location'
 import { nanoid } from 'nanoid'
 import type { SubmitHandler } from 'react-hook-form'
 
-import { useStore } from '@/store'
+import { useWalletStore } from '@/store'
 import { showToast } from '@/utils/toast'
 
 import type { FormValues } from '~wallet/common'
 
 export const useAddToken = () => {
-  const addToken = useStore((state) => state.addToken)
+  const addToken = useWalletStore((state) => state.addToken)
   const navigate = useNavigate()
 
   const handleAddToken: SubmitHandler<FormValues> = ({ name, balance }) => {

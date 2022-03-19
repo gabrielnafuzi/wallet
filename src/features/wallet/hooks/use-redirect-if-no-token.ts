@@ -2,11 +2,11 @@ import { useRef } from 'react'
 
 import { useNavigate } from '@tanstack/react-location'
 
-import { useStore } from '@/store'
+import { useWalletStore } from '@/store'
 import { showToast } from '@/utils/toast'
 
 export const useRedirectIfNoToken = (id?: string) => {
-  const getToken = useStore((state) => state.getToken)
+  const getToken = useWalletStore((state) => state.getToken)
   const navigate = useNavigate()
 
   return useRef(() => {

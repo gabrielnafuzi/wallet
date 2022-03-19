@@ -7,18 +7,18 @@ import { useForm } from 'react-hook-form'
 
 import { Input } from '@/components/form'
 import { LocationGenerics } from '@/routes/types'
-import { useStore } from '@/store'
+import { useWalletStore } from '@/store'
+import type { Token } from '@/store'
 
 import type { FormValues } from '~wallet/common'
 import { tokenFormSchema } from '~wallet/common'
-import type { Token } from '~wallet/types'
 
 import { useRemoveToken, useUpdateToken } from './hooks'
 import { ConfirmRemoveTokenPopover } from './partials'
 
 export const EditTokenForm = () => {
   const { params } = useMatch<LocationGenerics>()
-  const getToken = useStore((state) => state.getToken)
+  const getToken = useWalletStore((state) => state.getToken)
 
   const selectedToken = useMemo(
     () => getToken(params.tokenId) as Token,
