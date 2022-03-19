@@ -47,7 +47,6 @@ module.exports = {
     'react/self-closing-comp': 'warn',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/no-unused-vars': [
       'error',
       {

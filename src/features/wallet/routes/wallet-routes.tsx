@@ -7,21 +7,17 @@ import { MainLayout } from '@/components/layout'
 import { LocationGenerics } from '@/routes/types'
 import { lazyImport } from '@/utils/lazy-import'
 
-import { WalletProvider } from '../context'
-
 const { AddToken } = lazyImport(() => import('./add-token'), 'AddToken')
 const { EditToken } = lazyImport(() => import('./edit-token'), 'EditToken')
 const { Tokens } = lazyImport(() => import('./tokens'), 'Tokens')
 
 const WalletApp = () => {
   return (
-    <WalletProvider>
-      <MainLayout>
-        <Suspense fallback={<FullPageSpinner />}>
-          <Outlet />
-        </Suspense>
-      </MainLayout>
-    </WalletProvider>
+    <MainLayout>
+      <Suspense fallback={<FullPageSpinner />}>
+        <Outlet />
+      </Suspense>
+    </MainLayout>
   )
 }
 
