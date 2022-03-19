@@ -4,7 +4,7 @@ export type Token = {
   balance: string
 }
 
-export type WalletSlice = {
+export type WalletStore = {
   tokens: Token[]
   addToken: (token: Token) => void
   removeToken: (id: string) => void

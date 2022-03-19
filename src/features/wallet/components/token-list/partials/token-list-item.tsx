@@ -3,9 +3,8 @@ import { useNavigate } from '@tanstack/react-location'
 import { motion } from 'framer-motion'
 import { FaEdit } from 'react-icons/fa'
 
+import type { Token } from '@/store'
 import { formatToNumber } from '@/utils/format-to-number'
-
-import { Token } from '~wallet/types'
 
 import { itemVariants } from './motion-variants'
 
