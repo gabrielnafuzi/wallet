@@ -14,12 +14,11 @@
     "test:ci": "jest --runInBand",
     "test:watch": "jest --watch --maxWorkers=25%",
     "test": "jest --maxWorkers=50%",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "lint-staged": {
     "src/**/*": [
-      "yarn lint:fix",
-      "yarn typecheck"
+      "yarn lint:fix"
     ]
   },
   "dependencies": {
