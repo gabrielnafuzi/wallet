@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react'
 
 import { renderWithTheme } from '@/utils/tests'
 
-import { FullPageSpinner } from './full-page-spinner'
+import { FullPageSpinner } from '.'
 
 describe('<FullPageSpinner />', () => {
   it('should render correctly', () => {
