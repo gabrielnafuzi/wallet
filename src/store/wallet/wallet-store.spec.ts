@@ -65,4 +65,19 @@ describe('WalletStore', () => {
 
     expect(result.current.getToken(token.id)).toEqual(token)
   })
+
+  it('should return null when id is not passed or not found', () => {
+    const { result } = renderHook(() => useWalletStore())
+
+    expect(result.current.tokens.length).toBe(0)
+
+    const token = makeToken()
+
+    act(() => {
+      result.current.addToken(token)
+    })
+
+    expect(result.current.getToken()).toBeNull()
+    expect(result.current.getToken('invalid_id')).toBeNull()
+  })
 })
