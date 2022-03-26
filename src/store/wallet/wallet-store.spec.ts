@@ -21,4 +21,19 @@ describe('WalletStore', () => {
 
     expect(result.current.tokens.length).toBe(1)
   })
+
+  it('should remove a token', () => {
+    const { result } = renderHook(() => useWalletStore())
+
+    expect(result.current.tokens.length).toBe(0)
+
+    const token = makeToken()
+
+    act(() => {
+      result.current.addToken(token)
+      result.current.removeToken(token.id)
+    })
+
+    expect(result.current.tokens.length).toBe(0)
+  })
 })
