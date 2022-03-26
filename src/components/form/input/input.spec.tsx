@@ -10,4 +10,10 @@ describe('<Input />', () => {
 
     expect(screen.queryByLabelText('field')).toBeInTheDocument()
   })
+
+  it('should render without label', () => {
+    renderWithTheme(<Input name="field" />)
+
+    expect(screen.queryByLabelText('field')).not.toBeInTheDocument()
+  })
 })
