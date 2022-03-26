@@ -51,4 +51,18 @@ describe('WalletStore', () => {
 
     expect(result.current.tokens[0].balance).toBe('200')
   })
+
+  it('should return a token when id is passed and has a token with same id', () => {
+    const { result } = renderHook(() => useWalletStore())
+
+    expect(result.current.tokens.length).toBe(0)
+
+    const token = makeToken()
+
+    act(() => {
+      result.current.addToken(token)
+    })
+
+    expect(result.current.getToken(token.id)).toEqual(token)
+  })
 })
