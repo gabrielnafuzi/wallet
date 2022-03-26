@@ -52,4 +52,18 @@ describe('<Input />', () => {
 
     expect(input).toHaveFocus()
   })
+
+  it('should render an error label if error and isInvalid is passed', () => {
+    renderWithTheme(
+      <Input
+        name="input"
+        label="input"
+        id="input"
+        error="error-message"
+        isInvalid
+      />
+    )
+
+    expect(screen.getByText('error-message')).toBeInTheDocument()
+  })
 })
