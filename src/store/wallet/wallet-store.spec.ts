@@ -80,4 +80,22 @@ describe('WalletStore', () => {
     expect(result.current.getToken()).toBeNull()
     expect(result.current.getToken('invalid_id')).toBeNull()
   })
+
+  it('should return an error when trying to add a token and name already exists', () => {
+    const { result } = renderHook(() => useWalletStore())
+    const token = makeToken()
+
+    act(() => {
+      result.current.addToken(token)
+    })
+
+    const newToken = makeToken()
+    let error: string | null = null
+
+    act(() => {
+      error = result.current.addToken(newToken).error
+    })
+
+    expect(error).toBe('Token with this name already exists')
+  })
 })
