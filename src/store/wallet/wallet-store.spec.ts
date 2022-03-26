@@ -44,12 +44,21 @@ describe('WalletStore', () => {
 
     const token = makeToken()
 
+    const anotherToken: Token = {
+      balance: '100',
+      id: 'another_token_id',
+      name: 'another_token_name',
+    }
+
     act(() => {
       result.current.addToken(token)
+      result.current.addToken(anotherToken)
       result.current.updateToken({ ...token, balance: '200' })
     })
 
-    expect(result.current.tokens[0].balance).toBe('200')
+    const updatedToken = result.current.getToken(token.id)
+
+    expect(updatedToken?.balance).toBe('200')
   })
 
   it('should return a token when id is passed and has a token with same id', () => {
