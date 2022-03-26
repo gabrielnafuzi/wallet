@@ -40,4 +40,16 @@ describe('<Input />', () => {
       expect(onChange).toHaveBeenLastCalledWith(text)
     })
   })
+
+  it('should be accessible with tab', () => {
+    renderWithTheme(<Input name="input" label="input" id="input" />)
+
+    const input = screen.getByLabelText('input')
+
+    expect(document.body).toHaveFocus()
+
+    userEvent.tab()
+
+    expect(input).toHaveFocus()
+  })
 })
