@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from '@chakra-ui/react'
 
-import { ShootingStar } from '@/components/shooting-star/shooting-star'
+import { ShootingStar } from '@/components/shooting-star'
 
 type WalletLayoutProps = {
   children?: React.ReactNode
