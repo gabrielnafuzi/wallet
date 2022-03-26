@@ -1,7 +1,13 @@
 import { Token } from './types'
 
+const SAME_TOKEN_ERROR_MESSAGE = 'Token with this name already exists'
+
+type ValidatorResponse = {
+  error: string | null
+}
+
 const throwSameTokenError = () => {
-  throw new Error('Token with this name already exists')
+  throw new Error(SAME_TOKEN_ERROR_MESSAGE)
 }
 
 const isSomeTokenWithSameName = (tokenName: string, tokens: Token[]) => {
@@ -14,12 +20,19 @@ const isSameToken = (token: Token, tokens: Token[]) => {
   return maybeToken?.id === token.id
 }
 
-export const canAddToken = (token: Token, tokens: Token[]) => {
+export const canAddToken = (
+  token: Token,
+  tokens: Token[]
+): ValidatorResponse => {
   if (isSomeTokenWithSameName(token.name, tokens)) {
-    throwSameTokenError()
+    return {
+      error: SAME_TOKEN_ERROR_MESSAGE,
+    }
   }
 
-  return true
+  return {
+    error: null,
+  }
 }
 
 export const canUpdateToken = (token: Token, tokens: Token[]) => {

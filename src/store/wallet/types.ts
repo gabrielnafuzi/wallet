@@ -1,3 +1,7 @@
+type Response = {
+  error: string | null
+}
+
 export type Token = {
   id: string
   name: string
@@ -6,8 +10,8 @@ export type Token = {
 
 export type WalletStore = {
   tokens: Token[]
-  addToken: (token: Token) => void
+  addToken: (token: Token) => Response
   removeToken: (id: string) => void
-  updateToken: (token: Token) => void
+  updateToken: (token: Token) => Response
   getToken: (tokenId?: string) => Token | null
 }

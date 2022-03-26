@@ -1,3 +1,5 @@
+import { useCallback } from 'react'
+
 import { useNavigate } from '@tanstack/react-location'
 import { nanoid } from 'nanoid'
 import type { SubmitHandler } from 'react-hook-form'
@@ -11,14 +13,8 @@ export const useAddToken = () => {
   const addToken = useWalletStore((state) => state.addToken)
   const navigate = useNavigate()
 
-  const handleAddToken: SubmitHandler<FormValues> = ({ name, balance }) => {
-    try {
-      addToken({
-        id: nanoid(),
-        name,
-        balance,
-      })
-
+  const onSuccess = useCallback(
+    (name: string) => {
       showToast({
         title: `Token ${name} created.`,
         description: 'Go to home page to see it.',
@@ -26,16 +22,30 @@ export const useAddToken = () => {
       })
 
       navigate({ to: '/' })
-    } catch (error) {
-      const title = (error as Error).message ?? 'Something went wrong'
+    },
+    [navigate]
+  )
 
-      showToast({
-        title,
-        description: 'Please try again.',
-        status: 'error',
+  const onError = useCallback((error: string) => {
+    showToast({
+      title: error,
+      description: 'Please try again.',
+      status: 'error',
+    })
+  }, [])
+
+  const handleAddToken: SubmitHandler<FormValues> = useCallback(
+    ({ name, balance }) => {
+      const { error } = addToken({
+        id: nanoid(),
+        name,
+        balance,
       })
-    }
-  }
+
+      error ? onError(error) : onSuccess(name)
+    },
+    [addToken, onError, onSuccess]
+  )
 
   return handleAddToken
 }

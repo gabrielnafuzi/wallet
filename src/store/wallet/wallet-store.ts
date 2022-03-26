@@ -12,14 +12,18 @@ export const useWalletStore = create<WalletStore>(
       tokens: [],
 
       addToken: (newToken: Token) => {
-        if (!canAddToken(newToken, get().tokens)) {
-          return
+        const { error } = canAddToken(newToken, get().tokens)
+
+        if (error) {
+          return { error }
         }
 
         set((state) => ({
           ...state,
           tokens: [...state.tokens, newToken],
         }))
+
+        return { error }
       },
 
       removeToken: (tokenId: string) => {
@@ -31,7 +35,7 @@ export const useWalletStore = create<WalletStore>(
 
       updateToken: (updatedToken: Token) => {
         if (!canUpdateToken(updatedToken, get().tokens)) {
-          return
+          return { error: '' }
         }
 
         set((state) => ({
@@ -40,6 +44,8 @@ export const useWalletStore = create<WalletStore>(
             token.id === updatedToken.id ? updatedToken : token
           ),
         }))
+
+        return { error: null }
       },
 
       getToken: (tokenId?: string) => {
