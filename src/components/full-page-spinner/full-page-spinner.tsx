@@ -9,6 +9,7 @@ export const FullPageSpinner = () => {
         emptyColor="whiteAlpha.200"
         color="brand.primary.default"
         size="xl"
+        role="status"
       />
     </Flex>
   )
