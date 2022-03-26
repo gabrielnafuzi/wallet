@@ -6,10 +6,6 @@ type ValidatorResponse = {
   error: string | null
 }
 
-const throwSameTokenError = () => {
-  throw new Error(SAME_TOKEN_ERROR_MESSAGE)
-}
-
 const isSomeTokenWithSameName = (tokenName: string, tokens: Token[]) => {
   return tokens.some((token) => token.name === tokenName)
 }
@@ -35,13 +31,20 @@ export const canAddToken = (
   }
 }
 
-export const canUpdateToken = (token: Token, tokens: Token[]) => {
+export const canUpdateToken = (
+  token: Token,
+  tokens: Token[]
+): ValidatorResponse => {
   if (
     isSomeTokenWithSameName(token.name, tokens) &&
     !isSameToken(token, tokens)
   ) {
-    throwSameTokenError()
+    return {
+      error: SAME_TOKEN_ERROR_MESSAGE,
+    }
   }
 
-  return true
+  return {
+    error: null,
+  }
 }

@@ -13,32 +13,37 @@ export const useUpdateToken = (selectedToken: Token) => {
   const updateToken = useWalletStore((state) => state.updateToken)
   const navigate = useNavigate()
 
+  const onSuccess = useCallback(
+    (name: string) => {
+      showToast({
+        title: `Token ${name} updated.`,
+        status: 'success',
+      })
+
+      navigate({ to: '/' })
+    },
+    [navigate]
+  )
+
+  const onError = useCallback((error: string) => {
+    showToast({
+      title: error,
+      description: 'Please try again.',
+      status: 'error',
+    })
+  }, [])
+
   const handleUpdateToken: SubmitHandler<FormValues> = useCallback(
     ({ name, balance }) => {
-      try {
-        updateToken({
-          ...selectedToken,
-          name,
-          balance,
-        })
+      const { error } = updateToken({
+        ...selectedToken,
+        name,
+        balance,
+      })
 
-        showToast({
-          title: `Token ${name} updated.`,
-          status: 'success',
-        })
-
-        navigate({ to: '/' })
-      } catch (error) {
-        const title = (error as Error).message ?? 'Something went wrong'
-
-        showToast({
-          title,
-          description: 'Please try again.',
-          status: 'error',
-        })
-      }
+      error ? onError(error) : onSuccess(name)
     },
-    [navigate, selectedToken, updateToken]
+    [onError, onSuccess, selectedToken, updateToken]
   )
 
   return handleUpdateToken

@@ -34,8 +34,10 @@ export const useWalletStore = create<WalletStore>(
       },
 
       updateToken: (updatedToken: Token) => {
-        if (!canUpdateToken(updatedToken, get().tokens)) {
-          return { error: '' }
+        const { error } = canUpdateToken(updatedToken, get().tokens)
+
+        if (error) {
+          return { error }
         }
 
         set((state) => ({
