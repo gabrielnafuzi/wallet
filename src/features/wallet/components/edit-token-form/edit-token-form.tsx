@@ -46,6 +46,7 @@ export const EditTokenForm = () => {
         {...register('name')}
         isInvalid={!!errors.name}
         error={errors.name?.message}
+        autoFocus
       />
 
       <Input

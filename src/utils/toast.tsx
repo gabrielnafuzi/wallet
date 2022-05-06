@@ -1,8 +1,7 @@
 import { createStandaloneToast, UseToastOptions } from '@chakra-ui/react'
 
 import { theme } from '@/styles/theme'
-
-const toast = createStandaloneToast({ theme })
+const { ToastContainer, toast } = createStandaloneToast({ theme })
 
 export const showToast = ({ title, ...options }: UseToastOptions) => {
   const {
@@ -19,3 +18,5 @@ export const showToast = ({ title, ...options }: UseToastOptions) => {
     ...options,
   })
 }
+
+export { ToastContainer }

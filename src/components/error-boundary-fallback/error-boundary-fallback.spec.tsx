@@ -1,5 +1,4 @@
-import { screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { fireEvent, screen } from '@testing-library/react'
 
 import { renderWithTheme } from '@/utils/tests'
 
@@ -7,17 +6,22 @@ import { ErrorBoundaryFallback } from '.'
 
 describe('<ErrorBoundaryFallback />', () => {
   it('should call location.assign with location.origin when refresh button is clicked', () => {
+    const assignSpy = jest.fn()
+
     Object.defineProperty(window, 'location', {
       writable: true,
-      value: { assign: jest.fn(), origin: 'https://example.com' },
+      value: {
+        assign: assignSpy,
+        origin: 'https://example.com',
+      },
     })
 
     renderWithTheme(<ErrorBoundaryFallback />)
 
     const refreshButton = screen.getByRole('button')
 
-    userEvent.click(refreshButton)
+    fireEvent.click(refreshButton)
 
-    expect(window.location.assign).toHaveBeenCalledWith('https://example.com')
+    expect(assignSpy).toHaveBeenCalledWith('https://example.com')
   })
 })
