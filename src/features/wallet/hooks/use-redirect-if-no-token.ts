@@ -2,7 +2,7 @@ import { useRef } from 'react'
 
 import { useNavigate } from '@tanstack/react-location'
 
-import { useWalletStore } from '@/store'
+import { useWalletStore } from '@/stores'
 import { showToast } from '@/utils/toast'
 
 export const useRedirectIfNoToken = (id?: string) => {

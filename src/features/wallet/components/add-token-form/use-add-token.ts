@@ -4,7 +4,7 @@ import { useNavigate } from '@tanstack/react-location'
 import { nanoid } from 'nanoid'
 import type { SubmitHandler } from 'react-hook-form'
 
-import { useWalletStore } from '@/store'
+import { useWalletStore } from '@/stores'
 import { showToast } from '@/utils/toast'
 
 import type { FormValues } from '~wallet/common'

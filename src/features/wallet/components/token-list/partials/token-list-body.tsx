@@ -1,7 +1,7 @@
 import { Flex, List, Text } from '@chakra-ui/react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import type { Token } from '@/store'
+import type { Token } from '@/stores'
 
 import { listVariants } from './motion-variants'
 import { TokenListItem } from './token-list-item'

@@ -7,8 +7,8 @@ import { useForm } from 'react-hook-form'
 
 import { Input } from '@/components/form'
 import { LocationGenerics } from '@/routes/types'
-import { useWalletStore } from '@/store'
-import type { Token } from '@/store'
+import { useWalletStore } from '@/stores'
+import type { Token } from '@/stores'
 
 import type { FormValues } from '~wallet/common'
 import { tokenFormSchema } from '~wallet/common'

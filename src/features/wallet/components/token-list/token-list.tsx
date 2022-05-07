@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 
-import { useWalletStore } from '@/store'
+import { useWalletStore } from '@/stores'
 
 import { TokenListBody, TokenListHead } from './partials'
 

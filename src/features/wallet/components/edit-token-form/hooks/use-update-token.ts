@@ -3,8 +3,8 @@ import { useCallback } from 'react'
 import { useNavigate } from '@tanstack/react-location'
 import type { SubmitHandler } from 'react-hook-form'
 
-import { useWalletStore } from '@/store'
-import type { Token } from '@/store'
+import { useWalletStore } from '@/stores'
+import type { Token } from '@/stores'
 import { showToast } from '@/utils/toast'
 
 import type { FormValues } from '~wallet/common'

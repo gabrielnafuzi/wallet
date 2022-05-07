@@ -2,8 +2,8 @@ import { useCallback } from 'react'
 
 import { useNavigate } from '@tanstack/react-location'
 
-import { useWalletStore } from '@/store'
-import type { Token } from '@/store'
+import { useWalletStore } from '@/stores'
+import type { Token } from '@/stores'
 import { showToast } from '@/utils/toast'
 
 export const useRemoveToken = (token: Token) => {

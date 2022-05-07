@@ -3,7 +3,7 @@ import { useNavigate } from '@tanstack/react-location'
 import { motion } from 'framer-motion'
 import { FaEdit } from 'react-icons/fa'
 
-import type { Token } from '@/store'
+import type { Token } from '@/stores'
 import { formatToNumber } from '@/utils/formatters'
 
 import { itemVariants } from './motion-variants'
