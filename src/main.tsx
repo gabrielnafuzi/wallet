@@ -3,7 +3,8 @@ import React from 'react'
 
 import ReactDOM from 'react-dom/client'
 
-import { App } from './app'
+import { App } from '@/app'
+
 import { ToastContainer } from './utils/toast'
 
 const root = ReactDOM.createRoot(document.getElementById('root')!)
