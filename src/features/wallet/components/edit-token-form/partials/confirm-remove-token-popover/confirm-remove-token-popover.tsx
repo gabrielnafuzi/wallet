@@ -51,7 +51,7 @@ export const ConfirmRemoveTokenPopover = ({
         <PopoverBody>Are you sure you want to remove this token?</PopoverBody>
 
         <PopoverFooter
-          d="flex"
+          display="flex"
           justifyContent="flex-end"
           borderColor="whiteAlpha.400"
         >
