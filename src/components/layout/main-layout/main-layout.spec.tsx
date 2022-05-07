@@ -1,8 +1,11 @@
-import { screen } from '@testing-library/react'
-
-import { renderWithTheme } from '@/utils/tests'
+import { screen, renderWithTheme } from '@/test'
 
 import { MainLayout } from '.'
+
+jest.mock('@/utils/toast', () => ({
+  __esModule: true,
+  toast: jest.fn(),
+}))
 
 describe('<MainLayout />', () => {
   it('should render children correctly', () => {

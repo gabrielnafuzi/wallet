@@ -12,8 +12,8 @@
     "prepare": "husky install",
     "preview": "vite preview",
     "test:ci": "jest --runInBand",
-    "test:watch": "jest --watch --maxWorkers=25%",
-    "test": "jest --maxWorkers=50%",
+    "test:watch": "jest --watch",
+    "test": "jest",
     "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "lint-staged": {

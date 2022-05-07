@@ -1,7 +1,4 @@
-import { screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-
-import { renderWithTheme } from '@/utils/tests'
+import { renderWithTheme, screen, waitFor, userEvent } from '@/test'
 
 import { Input } from '.'
 

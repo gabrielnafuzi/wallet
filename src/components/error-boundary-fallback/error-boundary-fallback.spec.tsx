@@ -1,6 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react'
-
-import { renderWithTheme } from '@/utils/tests'
+import { renderWithTheme, fireEvent, screen } from '@/test'
 
 import { ErrorBoundaryFallback } from '.'
 

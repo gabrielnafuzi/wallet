@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 
-import { renderWithTheme } from '@/utils/tests'
+import { renderWithTheme } from '@/test'
 
 import { AnimatedEntry } from '.'
 

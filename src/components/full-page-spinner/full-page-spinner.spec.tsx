@@ -1,6 +1,4 @@
-import { screen } from '@testing-library/react'
-
-import { renderWithTheme } from '@/utils/tests'
+import { renderWithTheme, screen } from '@/test'
 
 import { FullPageSpinner } from '.'
 
