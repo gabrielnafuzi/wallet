@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { FaEdit } from 'react-icons/fa'
 
 import type { Token } from '@/store'
-import { formatToNumber } from '@/utils/format-to-number'
+import { formatToNumber } from '@/utils/formatters'
 
 import { itemVariants } from './motion-variants'
 
