@@ -21,6 +21,9 @@
       "pnpm lint:fix"
     ]
   },
+  "engines": {
+    "node": "16.x || 14.x"
+  },
   "dependencies": {
     "@chakra-ui/react": "^2.0.0-next.0",
     "@emotion/react": "^11.8.1",
