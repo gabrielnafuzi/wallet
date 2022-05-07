@@ -4,7 +4,7 @@ import { AnimatedEntry } from '@/components/animated'
 
 import { AddTokenForm, GoBackHeader, WalletLayout } from '../components'
 
-export const AddToken = () => {
+export const AddTokenPage = () => {
   return (
     <WalletLayout>
       <Flex justify="center">

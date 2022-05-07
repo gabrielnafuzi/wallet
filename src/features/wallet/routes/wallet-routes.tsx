@@ -7,9 +7,9 @@ import { MainLayout } from '@/components/layout'
 import { LocationGenerics } from '@/routes/types'
 import { lazyImport } from '@/utils/lazy-import'
 
-const { AddToken } = lazyImport(() => import('./add-token'), 'AddToken')
-const { EditToken } = lazyImport(() => import('./edit-token'), 'EditToken')
-const { Tokens } = lazyImport(() => import('./tokens'), 'Tokens')
+const { AddTokenPage } = lazyImport(() => import('../pages'), 'AddTokenPage')
+const { EditTokenPage } = lazyImport(() => import('../pages'), 'EditTokenPage')
+const { TokensPage } = lazyImport(() => import('../pages'), 'TokensPage')
 
 const WalletApp = () => {
   return (
@@ -23,20 +23,19 @@ const WalletApp = () => {
 
 export const walletRoutes: Route<LocationGenerics>[] = [
   {
-    path: '',
     element: <WalletApp />,
     children: [
       {
         path: '/',
-        element: <Tokens />,
+        element: <TokensPage />,
       },
       {
         path: '/add-token',
-        element: <AddToken />,
+        element: <AddTokenPage />,
       },
       {
         path: '/edit-token/:tokenId',
-        element: <EditToken />,
+        element: <EditTokenPage />,
       },
       {
         element: <Navigate to="/" />,

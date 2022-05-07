@@ -3,7 +3,7 @@ import { useNavigate } from '@tanstack/react-location'
 
 import { TokenList, WalletLayout } from '../components'
 
-export const Tokens = () => {
+export const TokensPage = () => {
   const navigate = useNavigate()
 
   const handleNavigateToAddToken = () => {

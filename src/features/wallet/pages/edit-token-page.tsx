@@ -9,7 +9,7 @@ import { LocationGenerics } from '@/routes/types'
 import { EditTokenForm, GoBackHeader, WalletLayout } from '../components'
 import { useRedirectIfNoToken } from '../hooks'
 
-export const EditToken = () => {
+export const EditTokenPage = () => {
   const { params } = useMatch<LocationGenerics>()
 
   const redirectIfNoToken = useRedirectIfNoToken(params.tokenId)
