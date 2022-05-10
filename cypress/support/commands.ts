@@ -25,3 +25,11 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import '@testing-library/cypress/add-commands'
+
+Cypress.Commands.add('addToken', ({ name, balance }) => {
+  cy.visit('/add-token')
+
+  cy.findByPlaceholderText(/enter token name/i).type(name)
+  cy.findByPlaceholderText(/enter token balance/i).type(balance)
+  cy.findByRole('button', { name: /save/i }).click()
+})
