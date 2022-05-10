@@ -26,6 +26,7 @@ export const AddTokenForm = () => {
         {...register('name')}
         isInvalid={!!errors.name}
         error={errors.name?.message}
+        placeholder="Enter token name"
       />
 
       <Input
@@ -33,6 +34,7 @@ export const AddTokenForm = () => {
         {...register('balance')}
         isInvalid={!!errors.balance}
         error={errors.balance?.message}
+        placeholder="Enter token balance"
       />
 
       <Button type="submit" variant="primary" alignSelf="end" w="32">
