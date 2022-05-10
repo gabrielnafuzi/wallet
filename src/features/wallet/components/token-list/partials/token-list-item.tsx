@@ -26,6 +26,8 @@ export const TokenListItem = ({ token }: TokenListItemProps) => {
       <Grid templateColumns="10% 45% 45%">
         <GridItem display="flex" alignItems="center" justifyContent="center">
           <FaEdit
+            aria-label="Edit token"
+            role="button"
             size={20}
             cursor="pointer"
             onClick={handleNavigateToEditItem}

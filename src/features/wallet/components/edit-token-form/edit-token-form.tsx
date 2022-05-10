@@ -46,6 +46,7 @@ export const EditTokenForm = () => {
         {...register('name')}
         isInvalid={!!errors.name}
         error={errors.name?.message}
+        placeholder="Enter token name"
         autoFocus
       />
 
@@ -54,6 +55,7 @@ export const EditTokenForm = () => {
         {...register('balance')}
         isInvalid={!!errors.balance}
         error={errors.balance?.message}
+        placeholder="Enter token balance"
       />
 
       <Flex justify="space-between">
