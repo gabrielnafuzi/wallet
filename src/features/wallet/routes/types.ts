@@ -1,6 +1,6 @@
 import { MakeGenerics } from '@tanstack/react-location'
 
-export type LocationGenerics = MakeGenerics<{
+export type EditTokenPageGenerics = MakeGenerics<{
   Params: {
     tokenId: string
   }

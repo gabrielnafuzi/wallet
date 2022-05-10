@@ -6,18 +6,18 @@ import { useMatch } from '@tanstack/react-location'
 import { useForm } from 'react-hook-form'
 
 import { Input } from '@/components/form'
-import { LocationGenerics } from '@/routes/types'
 import { useWalletStore } from '@/stores'
 import type { Token } from '@/stores'
 
 import type { FormValues } from '~wallet/common'
 import { tokenFormSchema } from '~wallet/common'
+import type { EditTokenPageGenerics } from '~wallet/routes'
 
 import { useRemoveToken, useUpdateToken } from './hooks'
 import { ConfirmRemoveTokenPopover } from './partials'
 
 export const EditTokenForm = () => {
-  const { params } = useMatch<LocationGenerics>()
+  const { params } = useMatch<EditTokenPageGenerics>()
   const getToken = useWalletStore((state) => state.getToken)
 
   const selectedToken = useMemo(

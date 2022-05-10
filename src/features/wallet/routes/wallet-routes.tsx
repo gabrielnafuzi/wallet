@@ -4,7 +4,6 @@ import { Navigate, Outlet, Route } from '@tanstack/react-location'
 
 import { FullPageSpinner } from '@/components'
 import { MainLayout } from '@/components/layout'
-import { LocationGenerics } from '@/routes/types'
 import { lazyImport } from '@/utils/lazy-import'
 
 const { AddTokenPage } = lazyImport(() => import('../pages'), 'AddTokenPage')
@@ -21,7 +20,7 @@ const WalletApp = () => {
   )
 }
 
-export const walletRoutes: Route<LocationGenerics>[] = [
+export const walletRoutes: Route[] = [
   {
     element: <WalletApp />,
     children: [

@@ -1,9 +1,8 @@
 import { Outlet, ReactLocation, Router } from '@tanstack/react-location'
 
 import { publicRoutes } from './public-routes'
-import { LocationGenerics } from './types'
 
-const location = new ReactLocation<LocationGenerics>()
+const location = new ReactLocation()
 
 export const AppRoutes = () => {
   return (

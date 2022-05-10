@@ -4,13 +4,13 @@ import { Box, Flex } from '@chakra-ui/react'
 import { useMatch } from '@tanstack/react-location'
 
 import { AnimatedEntry } from '@/components/animated'
-import { LocationGenerics } from '@/routes/types'
 
 import { EditTokenForm, GoBackHeader, WalletLayout } from '../components'
 import { useRedirectIfNoToken } from '../hooks'
+import type { EditTokenPageGenerics } from '../routes'
 
 export const EditTokenPage = () => {
-  const { params } = useMatch<LocationGenerics>()
+  const { params } = useMatch<EditTokenPageGenerics>()
 
   const redirectIfNoToken = useRedirectIfNoToken(params.tokenId)
 
