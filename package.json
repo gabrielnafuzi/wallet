@@ -46,7 +46,7 @@
     "zustand": "^3.7.2"
   },
   "devDependencies": {
-    "@chakra-ui/cli": "^1.9.0",
+    "@chakra-ui/cli": "^2.0.0",
     "@chakra-ui/styled-system": "^1.19.0",
     "@testing-library/cypress": "^8.0.2",
     "@testing-library/jest-dom": "^5.16.4",
