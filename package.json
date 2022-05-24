@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@chakra-ui/cli": "^2.0.0",
-    "@chakra-ui/styled-system": "^1.19.0",
+    "@chakra-ui/styled-system": "^2.1.1",
     "@testing-library/cypress": "^8.0.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.0",
