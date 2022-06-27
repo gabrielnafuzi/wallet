@@ -31,8 +31,14 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
+      - name: Build
+        run: pnpm build
+
+      - name: Unit tests
+        run: pnpm test:ci
+
       - name: Cypress install
         run: pnpm cypress install
 
-      - name: Test
-        run: pnpm run-p test:ci test:e2e:ci
+      - name: E2E tests
+        run: pnpm test:e2e:ci
