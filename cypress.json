@@ -1,7 +1,0 @@
-{
-  "baseUrl": "http://localhost:4173",
-  "fileServerFolder": "dist",
-  "fixturesFolder": false,
-  "integrationFolder": "cypress/e2e",
-  "video": false
-}
